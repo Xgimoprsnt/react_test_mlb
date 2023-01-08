@@ -19,6 +19,18 @@ function App() {
     setSearchTxt(event.target.value)
   }
 
+  const ButtonGender = ({text})=>{
+    return(
+      <button   className={selectGender == text ? 'active' : undefined}               onClick={() => selectGender != text ? setGender(text) : setGender()}>{text}</button>
+    )
+  }
+
+  const ButtonCountry = ({text})=>{
+    return(
+      <button   className={selectCountry == text ? 'active' : undefined}               onClick={() => selectCountry != text ? setCountry(text) : setCountry()}>{text}</button>
+    )
+  }
+
   return (
     <Container fixed>
 
@@ -29,26 +41,26 @@ function App() {
         </Typography>
 
         <Stack justifyContent={'center'} direction="row" spacing={2} mt={4} >
-          <button   className={selectGender == 'Male' ? 'active' : undefined}               onClick={() => selectGender != 'Male' ? setGender('Male') : setGender()}>Male</button>
-          <button   className={selectGender == 'Female' ? 'active' : undefined}             onClick={() => selectGender != 'Female' ? setGender('Female') : setGender() }>Female</button>
-          <button   className={selectGender == 'Bigender' ? 'active' : undefined}           onClick={() => selectGender != 'Bigender' ?  setGender('Bigender'): setGender()}>Bigender</button>
-          <button   className={selectGender == 'Non-binary' ? 'active' : undefined}         onClick={() => selectGender != 'Non-binary' ?  setGender('Non-binary') : setGender()}>Non-binary</button>
-          <button   className={selectGender == 'Agender' ? 'active' : undefined}            onClick={() => selectGender != 'Agender' ?   setGender('Agender') : setGender()}>Agender</button>
-          <button   className={selectGender == 'Polygender' ? 'active' : undefined}         onClick={() => selectGender != 'Polygender' ?   setGender('Polygender') : setGender()}>Polygender</button>
-          <button   className={selectGender == 'Genderfluid' ? 'active' : undefined}        onClick={() => selectGender != 'Genderfluid' ?  setGender('Genderfluid') : setGender()}>Genderfluid</button>
-          <button   className={selectGender == 'Genderqueer' ? 'active' : undefined}        onClick={() => selectGender != 'Genderqueer' ?  setGender('Genderqueer') : setGender()}>Genderqueer</button>
+          <ButtonGender text={'Male'}></ButtonGender>
+          <ButtonGender text={'Female'}></ButtonGender>
+          <ButtonGender text={'Bigender'}></ButtonGender>
+          <ButtonGender text={'Non-binary'}></ButtonGender>
+          <ButtonGender text={'Agender'}></ButtonGender>
+          <ButtonGender text={'Polygender'}></ButtonGender>
+          <ButtonGender text={'Genderfluid'}></ButtonGender>
+          <ButtonGender text={'Genderqueer'}></ButtonGender>
         </Stack>
 
         <Stack justifyContent={'center'} direction="row" spacing={2} mt={4}>
-          <button  className={selectCountry == 'Brazil' ? 'active' : undefined}             onClick={() => selectCountry != 'Brazil' ?  setCountry('Brazil') : setCountry()}>Brazil</button>
-          <button className={selectCountry == 'Thailand' ? 'active' : undefined}            onClick={() => selectCountry != 'Thailand' ?  setCountry('Thailand'): setCountry()} >Thailand</button>
-          <button className={selectCountry == 'Sweden' ? 'active' : undefined}              onClick={() => selectCountry != 'Sweden' ?  setCountry('Sweden') : setCountry()} >Sweden</button>
-          <button className={selectCountry == 'Japan' ? 'active' : undefined}               onClick={() => selectCountry != 'Japan' ? setCountry('Japan'): setCountry()}>Japan</button>
-          <button className={selectCountry == 'Netherlands' ? 'active' : undefined}         onClick={() =>  selectCountry != 'Netherlands' ? setCountry('Netherlands') : setCountry()}>Netherlands</button>
+          <ButtonCountry  text={'Brazil'}></ButtonCountry>
+          <ButtonCountry  text={'Thailand'}></ButtonCountry>
+          <ButtonCountry  text={'Sweden'}></ButtonCountry>
+          <ButtonCountry  text={'Japan'}></ButtonCountry>
+          <ButtonCountry  text={'Netherlands'}></ButtonCountry>
         </Stack>
 
         <Stack justifyContent={'center'} direction="row" mt={5}>
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={handleSearch}  value={searchTxt} />
+          <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleSearch}  value={searchTxt} />
           <Button variant="text" onClick={()=> {
               setCountry()
               setGender()
